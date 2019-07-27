@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/calculajuros",
+      "launchUrl": "api/v1/calculajuros",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -20,7 +20,7 @@
     "SoftPlan.Api.InterestCalculator": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/calculajuros",
+      "launchUrl": "api/v1/calculajuros",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using SoftPlan.Api.InterestCalculator.Repositories;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace SoftPlan.Api.InterestCalculator
 {
@@ -30,6 +24,19 @@ namespace SoftPlan.Api.InterestCalculator
 
             services.AddSingleton<IInterestRepository, InterestRepository>();
 
+            services.AddSwaggerGen(s => { s.SwaggerDoc("v1", new 
+                Info {
+                Title = "API Calcula Juros",
+                Version = "v1",                
+                Description = "Calculation Api Rest with ASP.NET Core",
+                Contact = new Contact
+                {
+                    Name = "Maycon Flausino",
+                    Url = "https://github.com/maycon-flausino"
+                }
+
+            }); });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +54,8 @@ namespace SoftPlan.Api.InterestCalculator
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseSwagger();
+            app.UseSwaggerUI(s => { s.SwaggerEndpoint("/swagger/v1/swagger.json", "API Calcula Juros"); });
         }
     }
 }

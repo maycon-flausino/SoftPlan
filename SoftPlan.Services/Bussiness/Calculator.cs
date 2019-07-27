@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SoftPlan.Services.Bussiness
 {
     public static class Calculator
     {
-        public static int Soma(int a, int b)
-        {
-            return a + b;
-        }
 
         public static decimal CalculateInterest(decimal initialValue, int moth, double interestRate)
         {
@@ -23,11 +17,6 @@ namespace SoftPlan.Services.Bussiness
             {
                 throw ex;
             }
-        }
-
-        public static decimal CalculateInterest(decimal v1, int v2, object rateReturn)
-        {
-            throw new NotImplementedException();
         }
     }
 }

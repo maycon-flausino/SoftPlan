@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using SoftPlan.Api.InterestRate.Repositories;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace SoftPlan.Api.InterestRate
 {
@@ -28,6 +22,8 @@ namespace SoftPlan.Api.InterestRate
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSingleton<IInterestRatesRepository, InterestRatesRepository>();
+
+            services.AddSwaggerGen(s => { s.SwaggerDoc("v1", new Info { Title = "API Taxa Juros", Version = "v1" }); });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +41,10 @@ namespace SoftPlan.Api.InterestRate
 
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(s => { s.SwaggerEndpoint("/swagger/v1/swagger.json", "API Taxa Juros"); });
         }
     }
 }

@@ -9,6 +9,6 @@ namespace SoftPlan.Api.InterestCalculator.Repositories
     public interface IInterestRepository
     {
         IEnumerable<InterestEntity> GetInterest();
-        decimal Calculator(string valorinicial, string meses);
+        decimal Calculator(decimal valorinicial, int meses);
     }
 }

@@ -15,9 +15,9 @@ namespace SoftPlan.Api.InterestCalculator.Repositories
             _repository = new List<InterestEntity> { new InterestEntity { } };
         }
 
-        public decimal Calculator(string valorinicial, string meses)
+        public decimal Calculator(decimal valorinicial, int meses)
         {
-           return Services.Bussiness.Calculator.CalculateInterest(Convert.ToDecimal(valorinicial), Convert.ToInt32(meses), rateReturn());
+           return Services.Bussiness.Calculator.CalculateInterest(valorinicial, meses, rateReturn());
         }
 
         private double rateReturn()
@@ -29,7 +29,6 @@ namespace SoftPlan.Api.InterestCalculator.Repositories
         {
             return _repository;
         }
-
-        
+                
     }
 }
