@@ -23,11 +23,18 @@ namespace SoftPlan.Api.InterestCalculator.Controllers
         /// Get calculate interest.
         /// </summary>
         /// <returns>Calculate Interest</returns>
-        //GET: api/v1/calculajuros?valorinicial=100&meses=5       
+        /// <param name="valorincial">valorinicial</param>
+        /// <param name="meses">meses</param>
+
         [HttpGet("api/v1/calculajuros")]
+        //GET: api/v1/calculajuros?valorinicial=100&meses=5
         public IActionResult Get(decimal valorinicial, int meses)
         {
-            return Ok(_repository.Calculator(valorinicial, meses));
+            if (valorinicial > 0 && meses > 0)
+            {
+                return Ok(_repository.Calculator(valorinicial, meses, _configuration.GetValue<string>("InterestRateApi")).ToString("N2"));
+            }
+            return Redirect("/swagger/index.html");
         }
 
         /// <summary>
@@ -35,12 +42,9 @@ namespace SoftPlan.Api.InterestCalculator.Controllers
         /// </summary>
         /// <returns>The code.</returns>
         [HttpGet("api/v1/showmethecode")]
-        public ActionResult Get()
+        public IActionResult Get()
         {
             return Ok(_configuration.GetValue<string>("Github"));
-
         }
-
-
     }
 }

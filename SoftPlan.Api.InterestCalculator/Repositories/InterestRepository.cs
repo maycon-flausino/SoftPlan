@@ -1,34 +1,44 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using SoftPlan.Api.InterestCalculator.Models;
+using System.Net;
+
 
 namespace SoftPlan.Api.InterestCalculator.Repositories
 {
     public class InterestRepository : IInterestRepository
     {
-        private readonly List<InterestEntity> _repository;
+        [JsonProperty(PropertyName = "interest")]
+        public string InterestRate { get; set; }
+              
 
-        public InterestRepository()
+        public decimal Calculator(decimal initialValue, int moth, string urlApi)
         {
-            _repository = new List<InterestEntity> { new InterestEntity { } };
-        }
-
-        public decimal Calculator(decimal valorinicial, int meses)
-        {
-           return Services.Bussiness.Calculator.CalculateInterest(valorinicial, meses, rateReturn());
-        }
-
-        private double rateReturn()
-        {
-            return 0.01;
-        }
-
-        public IEnumerable<InterestEntity> GetInterest()
-        {
-            return _repository;
+           return Services.Bussiness.Calculator.CalculateInterest(initialValue, moth, GetInterestRate(urlApi));
         }
                 
+        public double GetInterestRate(string urlApi)
+        {
+            try
+            {
+                HttpWebResponse responseObjGet = null;
+                responseObjGet = Services.Utils.Utilities.GetApi(urlApi);
+
+                string jsonResult;
+
+                using (Stream stream = responseObjGet.GetResponseStream())
+                {
+                    StreamReader sr = new StreamReader(stream);
+                    jsonResult = sr.ReadToEnd();
+                    return Convert.ToDouble(JsonConvert.DeserializeObject<IEnumerable<InterestRepository>>(jsonResult).FirstOrDefault().InterestRate);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

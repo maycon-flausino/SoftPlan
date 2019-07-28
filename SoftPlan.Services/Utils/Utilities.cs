@@ -1,14 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Net;
 
 namespace SoftPlan.Services.Utils
 {
     public class Utilities
     {
-        public string RemoveSpaco(string valor)
+        public static HttpWebResponse GetApi(string urlApi)
         {
-            return valor.Trim();
+            try
+            {
+                //string urlApi = string.Format("https://localhost:44323/api/v1/taxajuros");
+                WebRequest requestObjGet = WebRequest.Create(urlApi);
+                requestObjGet.Method = "GET";
+                return (HttpWebResponse)requestObjGet.GetResponse();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
