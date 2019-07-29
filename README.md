@@ -1,7 +1,7 @@
-# Seleção de pessoa Desenvolvedora .Net Core
+# Teste .Net Core
 
 ## A demanda
-Você deverá criar duas API's uma com dois endpoints e outra com um endpoint:
+Duas API's, uma com dois endpoints e outra com um endpoint:
 
 ###  API 1
 
