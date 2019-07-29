@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -32,19 +33,12 @@ namespace SoftPlan.Api.InterestCalculator.Controllers
         {
             if (valorinicial > 0 && meses > 0)
             {
-                return Ok(_repository.Calculator(valorinicial, meses, _configuration.GetValue<string>("InterestRateApi")).ToString("N2"));
+                return Ok(_repository.Calculator(valorinicial, meses, _configuration.GetValue<string>("InterestRateApi")));
             }
             return Redirect("/swagger/index.html");
         }
 
-        /// <summary>
-        /// Get the codification in the Github.
-        /// </summary>
-        /// <returns>The code.</returns>
-        [HttpGet("api/v1/showmethecode")]
-        public IActionResult Get()
-        {
-            return Ok(_configuration.GetValue<string>("Github"));
-        }
+
+
     }
 }

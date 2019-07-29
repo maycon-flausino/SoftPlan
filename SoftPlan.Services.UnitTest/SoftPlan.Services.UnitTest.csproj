@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -13,6 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SoftPlan.Api.InterestCalculator\SoftPlan.Api.InterestCalculator.csproj" />
+    <ProjectReference Include="..\SoftPlan.Api.InterestRate\SoftPlan.Api.InterestRate.csproj" />
     <ProjectReference Include="..\SoftPlan.Services\SoftPlan.Services.csproj" />
   </ItemGroup>
 

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -16,15 +17,28 @@ namespace SoftPlan.Api.InterestCalculator.Repositories
 
         public decimal Calculator(decimal initialValue, int moth, string urlApi)
         {
-           return Services.Bussiness.Calculator.CalculateInterest(initialValue, moth, GetInterestRate(urlApi));
+            if (string.IsNullOrEmpty(urlApi))
+                return 0;
+            try
+            {
+                return Services.Bussiness.Calculator.CalculateInterest(initialValue, moth, Convert.ToDecimal(GetInterestRate(urlApi)));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
                 
-        public double GetInterestRate(string urlApi)
+        public decimal GetInterestRate(string urlApi)
         {
+
             try
             {
                 HttpWebResponse responseObjGet = null;
                 responseObjGet = Services.Utils.Utilities.GetApi(urlApi);
+
+                if (responseObjGet == null)
+                    return 0;
 
                 string jsonResult;
 
@@ -32,13 +46,13 @@ namespace SoftPlan.Api.InterestCalculator.Repositories
                 {
                     StreamReader sr = new StreamReader(stream);
                     jsonResult = sr.ReadToEnd();
-                    return Convert.ToDouble(JsonConvert.DeserializeObject<IEnumerable<InterestRepository>>(jsonResult).FirstOrDefault().InterestRate);
+                    return Convert.ToDecimal(JsonConvert.DeserializeObject<IEnumerable<InterestRepository>>(jsonResult).FirstOrDefault().InterestRate);
                 }
             }
             catch (Exception ex)
             {
                 throw ex;
-            }
+            }            
         }
     }
 }

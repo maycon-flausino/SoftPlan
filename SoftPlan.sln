@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftPlan.Services", "SoftPlan.Services\SoftPlan.Services.csproj", "{C393C7CA-2813-44CB-B231-FECE2AA08F69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftPlan.Services", "SoftPlan.Services\SoftPlan.Services.csproj", "{C393C7CA-2813-44CB-B231-FECE2AA08F69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftPlan.Api.InterestCalculator", "SoftPlan.Api.InterestCalculator\SoftPlan.Api.InterestCalculator.csproj", "{365EEB75-BA5C-4A78-8779-32CECC16E6FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftPlan.Api.InterestCalculator", "SoftPlan.Api.InterestCalculator\SoftPlan.Api.InterestCalculator.csproj", "{365EEB75-BA5C-4A78-8779-32CECC16E6FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftPlan.Api.InterestRate", "SoftPlan.Api.InterestRate\SoftPlan.Api.InterestRate.csproj", "{7079F522-C049-4219-A488-9544FFD5CC77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftPlan.Api.InterestRate", "SoftPlan.Api.InterestRate\SoftPlan.Api.InterestRate.csproj", "{7079F522-C049-4219-A488-9544FFD5CC77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftPlan.Tests.InterestRate", "SoftPlan.Tests.InterestRate\SoftPlan.Tests.InterestRate.csproj", "{2F004DFA-ACFE-46AD-A26F-958C48A5B0A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Softplan.Api.InterestRate.UnitTest", "Softplan.Api.InterestRate.UnitTest\Softplan.Api.InterestRate.UnitTest.csproj", "{86CFCD18-F956-4B7F-84D6-B1F12D8DD272}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftPlan.Api.InterestCalculator.UnitTest", "SoftPlan.Api.InterestCalculator.UnitTest\SoftPlan.Api.InterestCalculator.UnitTest.csproj", "{3AF740ED-AC14-4AE9-93B3-E230CD562840}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftPlan.Services.UnitTest", "SoftPlan.Services.UnitTest\SoftPlan.Services.UnitTest.csproj", "{45F4F651-8C14-45D5-807C-61DA43BC3FAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +33,18 @@ Global
 		{7079F522-C049-4219-A488-9544FFD5CC77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7079F522-C049-4219-A488-9544FFD5CC77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7079F522-C049-4219-A488-9544FFD5CC77}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2F004DFA-ACFE-46AD-A26F-958C48A5B0A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2F004DFA-ACFE-46AD-A26F-958C48A5B0A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2F004DFA-ACFE-46AD-A26F-958C48A5B0A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2F004DFA-ACFE-46AD-A26F-958C48A5B0A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86CFCD18-F956-4B7F-84D6-B1F12D8DD272}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86CFCD18-F956-4B7F-84D6-B1F12D8DD272}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86CFCD18-F956-4B7F-84D6-B1F12D8DD272}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86CFCD18-F956-4B7F-84D6-B1F12D8DD272}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AF740ED-AC14-4AE9-93B3-E230CD562840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AF740ED-AC14-4AE9-93B3-E230CD562840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AF740ED-AC14-4AE9-93B3-E230CD562840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AF740ED-AC14-4AE9-93B3-E230CD562840}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45F4F651-8C14-45D5-807C-61DA43BC3FAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45F4F651-8C14-45D5-807C-61DA43BC3FAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45F4F651-8C14-45D5-807C-61DA43BC3FAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45F4F651-8C14-45D5-807C-61DA43BC3FAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

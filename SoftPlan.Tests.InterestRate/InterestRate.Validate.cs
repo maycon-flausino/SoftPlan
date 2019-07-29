@@ -15,5 +15,11 @@ namespace SoftPlan.Tests.InterestRate
 
             //Assert.False(result, "1 should not be prime");
         }
+
+        [Fact]
+        public void Calculator()
+        {
+            Services.Bussiness.Calculator.CalculateInterest(100, 5, 0.01);
+        }
     }
 }
